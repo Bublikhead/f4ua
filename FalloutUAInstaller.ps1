@@ -40,13 +40,13 @@ if (Test-Path -Path $sourcePath) {
     # Get directories (child folders) in the source path
     $directories = Get-ChildItem -Path $sourcePath -Directory
     # Ensure destination path is not null or empty
-    if (-not [String]::IsNullOrWhiteSpace($destinationPath)) {
+    if (-not [String]::IsNullOrWhiteSpace($destinationPaths)) {
         # Loop through each directory and copy it to the destination
         foreach ($dir in $directories) {
-            $destPath = Join-Path -Path $destinationPath -ChildPath $dir.Name
+            $destPath = Join-Path -Path $destinationPaths -ChildPath $dir.Name
             Copy-Item -Path $dir.FullName -Destination $destPath -Recurse -Force
         }
-        Write-Host "Файли перекладів скопійовані з $sourcePath до $destinationPath."
+        Write-Host "Файли перекладів скопійовані з $sourcePath до $destinationPaths."
     } else {
         Write-Host "Шлях до гри не існує. Переконайтесь, що папка існує."
         Write-Host "Інсталіція не успішна."
