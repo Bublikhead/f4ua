@@ -1,5 +1,5 @@
 ﻿# Get translation folder path
-$sourcePath = Read-Host "Вкажіть папку до файлів перекладу (всередині /data) або залиште порожнім, якщо хочете використати поточну директорію:"
+$sourcePath = Read-Host "Вкажіть папку до файлів перекладу (всередині /data) або залиште порожнім, якщо хочете використати поточну директорію"
 if ([string]::IsNullOrWhiteSpace($sourcePath)) {
     $sourcePath = Get-Location
 }
